@@ -6,23 +6,20 @@ pair() {
   local PAIR_EMAIL_DOMAIN='bendyworks.com'
 
   # Bendyworkers:
-  local begriffs='Joe Nelson'
   local bendycode='Stephen Anderson'
-  local bigtiger='Jim Remsik'
   local devn='Devin Walters'
-  local jaym3s='Jaymes Waters'
   local listrophy='Bradley Grzesiak'
   local mathias='Matt Gauger'
-  local randland='Nick Karpenske'
-  local rylnd='Ryland Herrick'
   local twopoint718='Chris Wilson'
-  local whblondeau='Bill Blondeau'
+  local glynnis='Glynnis Ritchie'
+  local joshuarh='Josh Hoff'
+  local micfunk='Mic Funk'
+  local missingdink='Kelly Rauwerdink'
+  local sigmavirus24='Ian Cordasco'
+  local cdwort='Amy Unger'
+  local jonplussed='Jon Childress'
 
   # Other:
-  local jcarley='Jeff Carley'
-  local angelic='Angel N. Sciortino'
-  local glynnis='Glynnis Ritchie'
-  local jdpace='Jared Pace'
   local m5rk='Mark McEahern'
   #### END CONFIGURATION ##################################################
 
