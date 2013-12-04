@@ -21,6 +21,7 @@ pair() {
 
   # Other:
   local m5rk='Mark McEahern'
+  local goodmike='Michael Harrison'
   #### END CONFIGURATION ##################################################
 
   set_session_vars() {
