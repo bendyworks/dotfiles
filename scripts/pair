@@ -7,17 +7,17 @@ pair() {
 
   # Bendyworkers:
   local bendycode='Stephen Anderson'
+  local cdwort='Amy Unger'
   local devn='Devin Walters'
+  local glynnis='Glynnis Ritchie'
+  local jonplussed='Jon Childress'
+  local joshuarh='Josh Hoff'
   local listrophy='Bradley Grzesiak'
   local mathias='Matt Gauger'
-  local twopoint718='Chris Wilson'
-  local glynnis='Glynnis Ritchie'
-  local joshuarh='Josh Hoff'
   local micfunk='Mic Funk'
   local missingdink='Kelly Rauwerdink'
   local sigmavirus24='Ian Cordasco'
-  local cdwort='Amy Unger'
-  local jonplussed='Jon Childress'
+  local twopoint718='Chris Wilson'
 
   # Other:
   local m5rk='Mark McEahern'
