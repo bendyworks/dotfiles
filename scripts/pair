@@ -68,15 +68,27 @@ pair() {
 
   for user in ${usernames[@]}; do
     if [[ -z "$(eval echo \$$user)" ]]; then # user cache MISS, check GitHub
-      name=$(curl -is https://api.github.com/users/$user | grep -o '"name":.*"' | cut -d \" -f 4)
+      github_response=$(curl -is https://api.github.com/users/$user)
+      status_ok=$(echo "$github_response" | head -n 1 | grep -o '200 OK')
 
-      if [[ -z "$name" ]]; then
-        echo "No author name found for GitHub username: $user."
-        echo "Are you online, and does their GitHub profile have a name?"
-        return 1
+      if [[ -n "$status_ok" ]]; then
+          name=$(echo "$github_response" | grep -o '"name":.*"' | cut -d \" -f 5)
+
+          if [[ -z "$name" ]]; then
+            echo "No author name found for GitHub username: $user."
+            echo "Does their GitHub profile have a name?"
+            echo "Using their GitHub username for now."
+            local $user="$user"
+          else
+            local $user="$name"
+          fi
       else
-        local $user="$name"
+        echo "No user found for GitHub username: $user."
+        echo "Is the username correct?"
+        return 1
       fi
+
+
     fi
     names=(${names[@]} \$$user)
     pair_email=$pair_email+$user
