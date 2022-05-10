@@ -118,7 +118,7 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # load our custom dotfiles configuration
-[[ ! -f ~/.dotfiles/.config ]] || source ~/.dotfiles/.config.zsh
+[[ ! -f ~/.dotfiles/.config.zsh ]] || source ~/.dotfiles/.config.zsh
 
 # rbenv configuration
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -126,16 +126,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # ==================================================================================================
 # ALIASES
 # ==================================================================================================
-
-alias now='date +"%T"'
-alias nowdate='date +"%d-%m-%Y"'
-
-alias be='bundle exec'
-alias psack='ps aux | grep' # process search helper
-
-alias readenv='export $(grep -v "^#" .env | xargs -0)'
-
-alias gdiff='git difftool -d --tool=kdiff3'
 
 alias ffpm='/Applications/Firefox.app/Contents/MacOS/firefox --profilemanager'
 

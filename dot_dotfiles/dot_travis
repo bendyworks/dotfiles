@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-source_if_exists "$HOME/.travis/travis.sh"

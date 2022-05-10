@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env zsh
 
 append_to_path() {
   if [[ (-d $1) && (":$PATH:" != *":$1:"*) ]]; then
@@ -27,7 +27,7 @@ resolve_and_prepend_to_path() {
 }
 
 # Buffet bins
-prepend_to_path "$HOME/.buffet/bin"
+prepend_to_path "$HOME/.dotfiles/bin"
 
 # Android SDK
 if [ -d "$HOME/Library/Android/sdk" ]; then

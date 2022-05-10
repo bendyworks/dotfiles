@@ -1,7 +1,7 @@
-echo "functions"
-
 # source a file if it exists
-source_if_exists() { if [ -f $1 ]; then source $1; fi; }
+include () {
+  [[ -f $1 ]] && source $1
+}
 
 # Nuke NPM Node Modules and reinstall
 npm_nuke() { rm -rf node_modules && npm install; }

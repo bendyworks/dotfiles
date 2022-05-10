@@ -1,9 +1,4 @@
-echo "config"
-
-if [ -f "./.functions.zsh" ] ; then
-  echo "functions exist"
-  source "./.functions.zsh"
-fi
+[[ -f "$HOME/.dotfiles/.functions.zsh" ]] && source "$HOME/.dotfiles/.functions.zsh"
 
 # source_if_exists "$HOME/.dotfiles/path"          # configure the PATH
 # source_if_exists "$HOME/.dotfiles/variables"     # export environment variables
@@ -15,7 +10,8 @@ fi
 #   source_if_exists "$HOME/.dotfiles/windows"
 # fi
 
-# source_if_exists "$HOME/.dotfiles/aliases"       # configure command aliases
+include "$HOME/.dotfiles/.aliases.zsh" # configure command aliases
+
 # source_if_exists "$HOME/.dotfiles/auto-complete" # configure auto-completion utilities
 # source_if_exists "$HOME/.pair"                 # "pair() shell function to set Git pairs"
 # source_if_exists "$HOME/.bashrc.local"         # local .bashrc overrides
