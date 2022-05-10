@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU
+  colorflag="--color"
+else # MacOS
+  colorflag="-G"
+fi
+
+# GENERAL SHELL ====================================================================================
+
+alias reload="source ~/.bash_profile"
+
+# output path entries on separate lines
+alias path='echo $PATH | tr -s ":" "\n"'
+
+# export each item in a .env file
+alias readenv='export $(grep -v "^#" .env | xargs -0)'
+
+alias now='date +"%T"'
+alias nowdate='date +"%d-%m-%Y"'
+
+# NAVIGATION =======================================================================================
+
+alias ..='cd ..' # ':' is reserved in bash as equivalent to true
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias ::='cd ../..'
+alias :::='cd ../../..'
+alias ::::='cd ../../../..'
+alias :::::='cd ../../../../..'
+
+# COMMON ===========================================================================================
+
+# Shortcuts
+alias b='bundle'
+alias be='bundle exec'
+alias gr='grunt'
+alias r='rake'
+alias v='vim'
+
+# LIST
+alias ls="ls -F ${colorflag}"
+alias ls="command ls ${colorflag}"                        # Always use color output for `ls`
+alias l="ls -lF ${colorflag}"                             # List all files colorized in long format
+alias laf="ls -lAF ${colorflag}"                          # List all files colorized in long format, excluding . and ..
+alias la="ls -lah ${colorflag}"                           # List all files in long format with suffixes, with hidden files
+alias ll="ls -l ${colorflag}"                             # List all files in long format
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'" # List only directories
+alias l.="ls -d .* ${colorflag}"                          # List only hidden files
+
+# GREP
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto --exclude-dir=.svn --exclude-dir=.git --exclude-dir=tmp'
+alias fgrep='fgrep --color=auto --exclude-dir=.svn --exclude-dir=.git --exclude-dir=tmp'
+alias egrep='egrep --color=auto --exclude-dir=.svn --exclude-dir=.git --exclude-dir=tmp'
+alias psack='ps aux | grep' # process search helper
+
+# GIT ==============================================================================================
+
+alias g='git'
+alias ga='git add'
+alias gap='git add -p'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gco='git checkout'
+alias gcm='git checkout master'
+alias gcl='git config --list'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gst='git status'
+alias gss='git status -s'
+alias gl='git pull'
+alias gup='git pull --rebase'
+alias gp='git push'
+
+# DEVELOPMENT ======================================================================================
+
+# make Postgres not a huge PITA to start/stop
+alias pgup="pg_ctl -D $PG_DATA_DIR -l $PG_DATA_DIR/server.log start"
+alias pgdown="pg_ctl -D $PG_DATA_DIR stop"
+
+# run a server in the current directory
+alias server='ruby -run -e httpd . -p 9090'
+
+# attach to the tmux session or create a new session named after the user
+alias tmuxup='tmux attach-session -t "$(whoami)" || tmux new-session -s "$(whoami)"'
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# NETWORKING =======================================================================================
+
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+# External IP Address
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# Local IP Address
+alias localip="ipconfig getifaddr en0"
+# IP Addresses
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# EOF ==============================================================================================
