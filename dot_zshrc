@@ -125,11 +125,3 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 # load our custom dotfiles configuration
 [[ ! -f ~/.dotfiles/.config.zsh ]] || source ~/.dotfiles/.config.zsh
 
-# rbenv configuration
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# android platform tools
-if [ -d "$HOME/platform-tools" ] ; then
- export PATH="$HOME/platform-tools:$PATH"
-fi
-

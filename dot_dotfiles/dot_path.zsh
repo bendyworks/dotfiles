@@ -41,6 +41,11 @@ if [ -d "$HOME/Library/Android/sdk" ]; then
   prepend_to_path "$ANDROID_HOME/tools"
 fi
 
+# android platform tools
+if [ -d "$HOME/platform-tools" ] ; then
+ export PATH="$HOME/platform-tools:$PATH"
+fi
+
 # Node Version Manager
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
