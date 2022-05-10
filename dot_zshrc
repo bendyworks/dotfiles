@@ -123,5 +123,4 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # load our custom dotfiles configuration
-[[ ! -f ~/.dotfiles/.config.zsh ]] || source ~/.dotfiles/.config.zsh
-
+[[ ! -f ~/.dotfiles/.init.zsh ]] || source ~/.dotfiles/.init.zsh

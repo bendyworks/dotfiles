@@ -1,3 +1,5 @@
+# This file adds paths to the PATH Environment Variable
+
 append_to_path() {
   # when directory exists and path doesn't contain segment
   if [[ (-d $1) && (":$PATH:" != *":$1:"*) ]]; then
@@ -43,7 +45,7 @@ fi
 
 # android platform tools
 if [ -d "$HOME/platform-tools" ] ; then
- export PATH="$HOME/platform-tools:$PATH"
+  prepend_to_path $HOME/platform-tools
 fi
 
 # Node Version Manager

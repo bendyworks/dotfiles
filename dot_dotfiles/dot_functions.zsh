@@ -4,7 +4,9 @@ include () {
 }
 
 # Nuke NPM Node Modules and reinstall
-npm_nuke() { rm -rf node_modules && npm install; }
+npm_nuke() {
+  rm -rf node_modules && npm install;
+}
 
 # Perform brew maintenance
 brew_yolo() {

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-include /usr/local/share/chruby/chruby.sh
-include /usr/local/share/chruby/auto.sh
