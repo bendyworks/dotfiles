@@ -1,6 +1,5 @@
-#!/bin/env zsh
-
 append_to_path() {
+  # when directory exists and path doesn't contain segment
   if [[ (-d $1) && (":$PATH:" != *":$1:"*) ]]; then
     export PATH="$PATH:$1"
   fi
@@ -26,8 +25,14 @@ resolve_and_prepend_to_path() {
   fi;
 }
 
-# Buffet bins
-prepend_to_path "$HOME/.dotfiles/bin"
+# Dotfile binaries
+prepend_to_path "$DOTFILES/bin"
+
+# Load Node global installed binaries
+prepend_to_path "$HOME/.node/bin"
+
+# Use project specific binaries before global ones
+prepend_to_path "node_modules/.bin:vendor/bin"
 
 # Android SDK
 if [ -d "$HOME/Library/Android/sdk" ]; then
@@ -46,7 +51,7 @@ fi
 # Ruby Version Manager
 if [ -d "$HOME/.rvm" ]; then
   prepend_to_path "$HOME/.rvm/bin"
-  source_if_exists "$HOME/.rvm/scripts/rvm"
+  include "$HOME/.rvm/scripts/rvm"
 fi
 
 # RBENV

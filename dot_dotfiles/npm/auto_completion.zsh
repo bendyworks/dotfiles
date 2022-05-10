@@ -1,22 +1,3 @@
-#!/usr/bin/env bash
-
-# include tab completion for bash commands
-if [[ `uname -s` == "Darwin" ]] && which brew &> /dev/null; then
-  source_if_exists `brew --prefix`/etc/bash_completion
-else # Linux
-  source_if_exists /etc/bash_completion
-fi
-
-# use git autocompletion when "git" is aliased to "g"
-if type __git_complete &>/dev/null; then
-  __git_complete g __git_main
-fi
-
-# Vault autocompletion
-if hash vault 2>/dev/null; then
-  complete -C /usr/local/bin/vault vault
-fi
-
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -36,11 +17,15 @@ if type complete &>/dev/null; then
     fi
 
     local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
+    if ! IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
                            COMP_LINE="$COMP_LINE" \
                            COMP_POINT="$COMP_POINT" \
                            npm completion -- "${words[@]}" \
-                           2>/dev/null)) || return $?
+                           2>/dev/null)); then
+      local ret=$?
+      IFS="$si"
+      return $ret
+    fi
     IFS="$si"
     if type __ltrim_colon_completions &>/dev/null; then
       __ltrim_colon_completions "${words[cword]}"
@@ -67,11 +52,16 @@ elif type compctl &>/dev/null; then
     read -l line
     read -ln point
     si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
+    if ! IFS=$'\n' reply=($(COMP_CWORD="$cword" \
                        COMP_LINE="$line" \
                        COMP_POINT="$point" \
                        npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
+                       2>/dev/null)); then
+
+      local ret=$?
+      IFS="$si"
+      return $ret
+    fi
     IFS="$si"
   }
   compctl -K _npm_completion npm

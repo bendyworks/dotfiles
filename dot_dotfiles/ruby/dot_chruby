@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-source_if_exists /usr/local/share/chruby/chruby.sh
-source_if_exists /usr/local/share/chruby/auto.sh
+include /usr/local/share/chruby/chruby.sh
+include /usr/local/share/chruby/auto.sh

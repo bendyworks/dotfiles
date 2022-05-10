@@ -1,18 +1,17 @@
-[[ -f "$HOME/.dotfiles/.functions.zsh" ]] && source "$HOME/.dotfiles/.functions.zsh"
+[[ -f "$DOTFILES/.functions.zsh" ]] && source "$DOTFILES/.functions.zsh"
 
-# source_if_exists "$HOME/.dotfiles/path"          # configure the PATH
-# source_if_exists "$HOME/.dotfiles/variables"     # export environment variables
-# source_if_exists "$HOME/.dotfiles/functions"     # helper functions
+include "$DOTFILES/.path.zsh"       # consfigure the PATH
+include "$DOTFILES/.variables.zsh"  # export environment variables
+include "$DOTFILES/.aliases.zsh"    # configure aliases
 
-# [[ `uname -s` == "Darwin" ]] && source_if_exists "$HOME/.dotfiles/osx"
+include $DOTFILES/npm/auto_completions.zsh
 
-# if grep --quiet --no-messages Microsoft /proc/version; then
-#   source_if_exists "$HOME/.dotfiles/windows"
-# fi
+# When MacOS is detected
+if [[ `uname -s` == "Darwin" ]]; then
+  include "$HOME/.dotfiles/system_macos/aliases.zsh"
+fi
 
-include "$HOME/.dotfiles/.aliases.zsh" # configure command aliases
-
-# source_if_exists "$HOME/.dotfiles/auto-complete" # configure auto-completion utilities
-# source_if_exists "$HOME/.pair"                 # "pair() shell function to set Git pairs"
-# source_if_exists "$HOME/.bashrc.local"         # local .bashrc overrides
-# source_if_exists "$HOME/.prompt"               # Bash prompt
+# When Windows Subsystem for Linux is detected
+if grep --quiet --no-messages Microsoft /proc/version; then
+  include "$DOTFILES/windows"
+fi

@@ -1,4 +1,4 @@
-# GENERAL SHELL ====================================================================================
+# Shell ============================================================================================
 
 # output path entries on separate lines
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -6,8 +6,10 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # export each item in a .env file
 alias readenv='export $(grep -v "^#" .env | xargs -0)'
 
-alias now='date +"%T"'
-alias nowdate='date +"%d-%m-%Y"'
+# Date =============================================================================================
+
+alias now='date +"%T"'                       # print out time
+alias nowdate='date +"%d-%m-%Y"'             # print out date
 
 # Shortcuts ========================================================================================
 # general purpose shortcuts for common files
@@ -18,7 +20,8 @@ alias r='rake'
 alias v='vim'
 
 # Directory ========================================================================================
-# list directory contents (expands built in oh-my-zsh aliaes)
+# list directory contents
+# NOTE: this extendsthe built-in oh-my-zsh aliaes
 
 alias l.="ls -d .*"                          # List only hidden files
 alias l="ls -lF"                             # List all files in long format
@@ -28,9 +31,9 @@ alias lsd="ls -lF | grep --color=never '^d'" # List only directories
 
 # Processes ========================================================================================
 # utilities to manage running processes
-alias psack='ps aux | grep' # process search helper
+alias psack='ps aux | grep'                  # process search helper
 
-# DEVELOPMENT ======================================================================================
+# Development Utilities ============================================================================
 
 # run a server in the current directory
 alias server='ruby -run -e httpd . -p 9090'
@@ -38,13 +41,13 @@ alias server='ruby -run -e httpd . -p 9090'
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-# NETWORKING =======================================================================================
+# Networking =======================================================================================
 
 # Show active network interfaces
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 # External IP Address
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip="dig @resolver4.opendns.com myip.opendns.com +short"
 
 # Local IP Address
 alias localip="ipconfig getifaddr en0"

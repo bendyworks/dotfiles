@@ -14,8 +14,12 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/valerie/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+
+# Path to dotfiles
+export DOTFILES="$HOME/.dotfiles"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+
 export EDITOR=vim
 export VISUAL=vim
 
@@ -123,14 +128,7 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 # rbenv configuration
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# ==================================================================================================
-# ALIASES
-# ==================================================================================================
-
-alias ffpm='/Applications/Firefox.app/Contents/MacOS/firefox --profilemanager'
-
-# ==================================================================================================
-
+# android platform tools
 if [ -d "$HOME/platform-tools" ] ; then
  export PATH="$HOME/platform-tools:$PATH"
 fi

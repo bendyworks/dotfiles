@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# set the default editor
-export EDITOR=vim
-export VISUAL=vim
-
-# not used by any program, but nice to reference
-export PG_DATA_DIR='/usr/local/var/postgres'
