@@ -43,6 +43,13 @@ if [ -d "$HOME/Library/Android/sdk" ]; then
   prepend_to_path "$ANDROID_HOME/tools"
 fi
 
+# LibPQ
+if [ -d "/usr/local/opt/libpq/bin" ]; then
+  export PATH="/usr/local/opt/libpq/bin:$PATH"
+  export LDFLAGS="-L/usr/local/opt/libpq/lib"
+  export CPPFLAGS="-I/usr/local/opt/libpq/include"
+fi
+
 # android platform tools
 if [ -d "$HOME/platform-tools" ] ; then
   prepend_to_path $HOME/platform-tools
