@@ -17,3 +17,5 @@ fi
 if grep --quiet --no-messages Microsoft /proc/version; then
   include "$DOTFILES/windows"
 fi
+
+include $(brew --prefix asdf)/libexec/asdf.sh
