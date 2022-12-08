@@ -1,6 +1,0 @@
-[submodule "dot_dotfiles/plugins/zsh-syntax-highlighting"]
-	path = dot_dotfiles/plugins/zsh-syntax-highlighting
-	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
-[submodule "dot_dotfiles/themes/powerlevel10k"]
-	path = dot_dotfiles/themes/powerlevel10k
-	url = git@github.com:romkatv/powerlevel10k.git
