@@ -28,3 +28,9 @@
    ```
    p10k configure
    ```
+
+## Update Externals
+
+```shell
+chezmoi --refresh-externals apply
+```
