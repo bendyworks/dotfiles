@@ -1,0 +1,32 @@
+##################################################
+# type(scope): subject
+# DEV TYPES:
+#   feature bugfix hotfix build chore ci
+#   style refactor perf test config
+# NOTE TYPES:
+#   notes
+# SCOPE: app api scripts docs
+# - No more than 50 characters
+# - imperative, sentance case, but no period
+# - leave a blank line between title and body
+##################################################
+
+# long description
+# - WHAT and WHY, not HOW -- reasons
+# - note breaking code changes
+# - Wrap at 72 chars
+########################################################################
+Because:
+
+########################################################################
+# CODE-123 - Include Task ID
+
+# contributors
+# ---------------
+# Co-authored-by: Andrew Assarattanakul <andrew@bendyworks.com>
+# Co-authored-by: Ben Dockery <ben.dockery@bendyworks.com>
+# Co-authored-by: Peter Schuck <peter@bendyworks.com>
+# Co-authored-by: Valerie Burzynski <valerie@bendyworks.com>
+# Co-authored-by: Jacob Ela <jacob@bendyworks.com>
+# Co-authored-by: Karl Heitmann <karl.heitmann@bendyworks.com>
+# Co-authored-by: Stephen Anderson <stephen@bendyworks.com>

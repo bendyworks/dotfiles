@@ -137,9 +137,9 @@
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-  smudge = git-lfs smudge -- %f
 
 # REFS
 # https://www.jacobtomlinson.co.uk/quick%20tip/2016/01/18/pretty-git-logs-with-git-lg/
@@ -157,3 +157,5 @@
 	defaultBranch = main
 [pager]
 	branch = false
+[commit]
+  template = ~/.gitmessage
