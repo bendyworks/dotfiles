@@ -1,24 +1,22 @@
-##################################################
+feature(app):
+#################################################
 # type(scope): subject
-# DEV TYPES:
-#   feature bugfix hotfix build chore ci
-#   style refactor perf test config
-# NOTE TYPES:
-#   notes
+# TYPES:
+#   feature bugfix hotfix build chore ci style
+#   refactor perf test config
 # SCOPE: app api scripts docs
 # - No more than 50 characters
 # - imperative, sentance case, but no period
 # - leave a blank line between title and body
-##################################################
 
 # long description
 # - WHAT and WHY, not HOW -- reasons
 # - note breaking code changes
 # - Wrap at 72 chars
-########################################################################
+#######################################################################
 Because:
 
-########################################################################
+#######################################################################
 # CODE-123 - Include Task ID
 
 # contributors
