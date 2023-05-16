@@ -1,13 +1,9 @@
-feature(app):
+
 #################################################
-# type(scope): subject
-# TYPES:
-#   feature bugfix hotfix build chore ci style
-#   refactor perf test config lint
-# SCOPE: app api scripts docs
-# - No more than 50 characters
-# - imperative, sentance case, but no period
-# - leave a blank line between title and body
+# type(optional-scope): subject - imperative, sentance case, but no period
+# TYPES: feat fix hotfix build chore ci style refactor perf test config lint
+# https://www.conventionalcommits.org/en/v1.0.0/
+# leave a blank line between subject and body:
 
 # long description
 # - WHAT and WHY, not HOW -- reasons
@@ -16,6 +12,8 @@ feature(app):
 #######################################################################
 
 # CODE-123 - Include Task ID
+
+# BREAKING CHANGE:
 
 # CONTRIBUTORS
 # ------------
