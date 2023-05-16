@@ -3,7 +3,7 @@ feature(app):
 # type(scope): subject
 # TYPES:
 #   feature bugfix hotfix build chore ci style
-#   refactor perf test config
+#   refactor perf test config lint
 # SCOPE: app api scripts docs
 # - No more than 50 characters
 # - imperative, sentance case, but no period
@@ -14,13 +14,11 @@ feature(app):
 # - note breaking code changes
 # - Wrap at 72 chars
 #######################################################################
-Because:
 
-#######################################################################
 # CODE-123 - Include Task ID
 
-# contributors
-# ---------------
+# CONTRIBUTORS
+# ------------
 # Co-authored-by: Andrew Assarattanakul <andrew@bendyworks.com>
 # Co-authored-by: Ben Dockery <ben.dockery@bendyworks.com>
 # Co-authored-by: Peter Schuck <peter@bendyworks.com>
