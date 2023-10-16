@@ -33,4 +33,5 @@
 
 ```shell
 chezmoi --refresh-externals apply
+chezmoi -R apply
 ```
