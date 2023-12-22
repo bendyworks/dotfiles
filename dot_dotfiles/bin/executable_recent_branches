@@ -1,0 +1,28 @@
+#!/bin/bash
+
+refbranch=$1
+count=${2:-100}
+
+format="%(refname:short)|"
+format+="%(color:yellow)%(refname:short)|"
+format+="%(color:green)%(committerdate:relative)|"
+format+="%(color:magenta)%(authorname)%(color:reset)|"
+format+="%(color:blue)%(subject)"
+
+git for-each-ref \
+  --sort=-committerdate \
+  refs/remotes/origin/ \
+  --format="${format}" \
+  --color=always \
+  --count=${count} \
+  | while read line; do
+    branch=$(echo "$line" | awk 'BEGIN { FS = "|" }; { print $1 }' | tr -d '*');
+    ahead="++ $(git rev-list --count "${refbranch:-origin/main}..${branch}")"
+    behind="-- $(git rev-list --count "${branch}..${refbranch:-origin/main}")"
+    colorline=$(echo "$line" | sed 's/^[^|]*|//');
+    echo "$behind|$ahead|$colorline" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ;
+  done \
+  | column -ts'|'
+
+  # TODO: column doesn't like the color codes and the headers get misaligned...
+  #   | ( echo "ahead|behind||branch|lastcommit|message|author" && cat) \
