@@ -3,9 +3,9 @@
 # first load the functions
 [[ -f "$DOTFILES/.functions.zsh" ]] && source "$DOTFILES/.functions.zsh"
 
-include $DOTFILES/.path.zsh                # consfigure the PATH
-include $DOTFILES/.variables.zsh           # export environment variables
-include $DOTFILES/.aliases.zsh             # configure aliases
+include $DOTFILES/.path.zsh                # configures the PATH
+include $DOTFILES/.variables.zsh           # configures environment variables
+include $DOTFILES/.aliases.zsh             # configures aliases
 include $DOTFILES/npm/auto_completions.zsh # NPM AutoCompletion
 
 # When MacOS is detected

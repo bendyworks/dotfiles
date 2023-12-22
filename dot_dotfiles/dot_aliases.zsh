@@ -9,7 +9,7 @@ alias readenv='export $(grep -v "^#" .env | xargs -0)'
 # Date =============================================================================================
 
 alias now='date +"%T"'                       # print out time
-alias nowdate='date +"%d-%m-%Y"'             # print out date
+alias nowdate='date +"%Y-%m-%d"'             # print out date
 
 # Shortcuts ========================================================================================
 # general purpose shortcuts for common files
@@ -31,6 +31,7 @@ alias lsd="ls -lF | grep --color=never '^d'" # List only directories
 
 # Processes ========================================================================================
 # utilities to manage running processes
+
 alias psack='ps aux | grep'                  # process search helper
 
 # Development Utilities ============================================================================
